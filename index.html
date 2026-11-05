@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agentic AI Handbook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A free, offline course that teaches Agentic AI from scratch to multi-agent systems.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Apply the saved theme before first paint, so there is no flash. */
+  try { var t = localStorage.getItem("aah-theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open chapter list" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <a class="brand" href="#home" aria-label="Agentic AI Handbook, home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="var(--accent)"/>
+      <circle cx="16" cy="16" r="8" fill="none" stroke="var(--accent-fg)" stroke-width="2.2"/>
+      <path d="M16 8 a8 8 0 0 1 8 8" fill="none" stroke="var(--accent-fg)" stroke-width="2.2"/>
+      <path d="M22.6 13.2l1.6 3 2.6-2.2" fill="none" stroke="var(--accent-fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="16" cy="16" r="2.4" fill="var(--accent-fg)"/>
+    </svg>
+    <span class="brand-text">Agentic AI Handbook<small>From first prompt to agent teams</small></span>
+  </a>
+  <div class="search-wrap" role="search">
+    <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="search" type="search" placeholder="Search lessons, terms, tools…" autocomplete="off" aria-label="Search the course" aria-controls="search-results">
+    <kbd>/</kbd>
+    <div class="search-results" id="search-results" role="listbox" hidden></div>
+  </div>
+  <button class="icon-btn" id="theme-btn" aria-label="Switch light or dark theme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Chapters"></nav>
+  <div class="scrim" id="scrim"></div>
+  <main class="main" id="main" tabindex="-1">
+    <div class="page"><p class="loading">Loading…</p></div>
+  </main>
+</div>
+
+<!-- Libraries, stored locally so the course works offline -->
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/vendor/prism.min.js"></script>
+<script src="assets/vendor/minisearch.min.js"></script>
+<!-- Course outline and shared data (small). Chapter files load on demand. -->
+<script src="content/course.js"></script>
+<script src="content/glossary.js"></script>
+<script src="content/videos.js"></script>
+<!-- App -->
+<script src="assets/js/components/render.js"></script>
+<script src="assets/js/components/quiz.js"></script>
+<script src="assets/js/components/stepper.js"></script>
+<script src="assets/js/components/sim.js"></script>
+<script src="assets/js/components/search.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+
+</body></html>

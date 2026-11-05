@@ -1,0 +1,75 @@
+/* Course outline. Chapters with a `file` are written and load on demand; the rest show their planned topics. */
+window.COURSE = {
+  title: "Agentic AI Handbook",
+  chapters: {},           // filled by chapter files as they load
+  parts: [
+    { id: "A", title: "Foundations", core: true,
+      blurb: "What AI, LLMs and agents are, how to talk to a model, and your first working AI app." },
+    { id: "B", title: "Building blocks of agents", core: true,
+      blurb: "The parts every agent is made of: embeddings, RAG, tools, the agent loop, memory and design patterns." },
+    { id: "C", title: "Frameworks and protocols", core: true,
+      blurb: "LangChain, LangGraph, MCP, advanced RAG, Agno and DSPy: the tools that turn the building blocks into real systems." },
+    { id: "D", title: "Multi-agent systems", core: true,
+      blurb: "When one agent is not enough: patterns, LangGraph, CrewAI, AutoGen, interoperability and the core capstone." },
+    { id: "E", title: "Low-code and automation", core: false,
+      blurb: "n8n, Zapier, Make and visual agent builders, and when to move from drag-and-drop to code." },
+    { id: "F", title: "Production", core: false,
+      blurb: "Observability, monitoring, guardrails, security, fine-tuning, deployment and cloud agent platforms." },
+    { id: "G", title: "Agentic software development", core: false,
+      blurb: "Using AI coding agents well: saving tokens, MCP with your software and databases, plugins, and running a team of agents." }
+  ],
+  outline: [
+    // Part A
+    { id: "ch01", n: 1,  part: "A", title: "AI, GenAI and Agentic AI", file: "content/part-a/ch01-ai-genai-agentic.js", topics: "Traditional vs generative vs agentic AI; AI agents vs agentic AI; autonomy levels; single vs multi-agent; responsible AI; case studies" },
+    { id: "ch02", n: 2,  part: "A", title: "How LLMs work", file: "content/part-a/ch02-how-llms-work.js", code: "content/code/ch02.js", topics: "Tokens, attention (intuition), next-token prediction, context windows and cost, temperature, hallucination, tiktoken, managing context" },
+    { id: "ch03", n: 3,  part: "A", title: "Prompt engineering", file: "content/part-a/ch03-prompt-engineering.js", code: "content/code/ch03.js", topics: "System vs user prompts, personas, zero/one/few-shot, chain-of-thought, tree-of-thought, ReAct prompting, JSON mode, evaluating prompts" },
+    { id: "ch04", n: 4,  part: "A", title: "Python setup for AI", file: "content/part-a/ch04-python-setup.js", code: "content/code/ch04.js", topics: "pyenv, venv/conda, VS Code, Jupyter, project structure, requirements.txt, python-dotenv, Git, asyncio, Google Colab" },
+    { id: "ch05", n: 5,  part: "A", title: "Your first AI app", file: "content/part-a/ch05-first-ai-app.js", code: "content/code/ch05.js", topics: "OpenAI and Anthropic APIs (Gemini in Go deeper), REST, FastAPI, Pydantic, Server-Sent Events, Streamlit, Gradio, file uploads, Swagger UI, Hugging Face Spaces" },
+    // Part B
+    { id: "ch06", n: 6,  part: "B", title: "Embeddings and vector databases", file: "content/part-b/ch06-embeddings.js", code: "content/code/ch06.js", topics: "Embeddings, similarity metrics, ChromaDB, FAISS index types, hybrid search with BM25, chunking, UMAP" },
+    { id: "ch07", n: 7,  part: "B", title: "RAG", file: "content/part-b/ch07-rag.js", code: "content/code/ch07.js", topics: "Loaders, chunking, embed, retrieve, generate; multi-query and contextual-compression retrievers; ensemble retrievers; semantic chunker; citations" },
+    { id: "ch08", n: 8,  part: "B", title: "Tools and function calling", file: "content/part-b/ch08-tools.js", code: "content/code/ch08.js", topics: "Tool schemas, the model asks and your code runs, routing intent, Pydantic arguments, tool errors and retries" },
+    { id: "ch09", n: 9,  part: "B", title: "The agent: loop and architecture", file: "content/part-b/ch09-agent-loop.js", code: "content/code/ch09.js",
+      topics: "Perceive, reason, act, observe; agent modules; stopping conditions; max iterations; agent vs workflow" },
+    { id: "ch10", n: 10, part: "B", title: "Memory", file: "content/part-b/ch10-memory.js", code: "content/code/ch10.js", topics: "Short-term vs long-term memory; episodic, semantic, procedural; trimming and summarising; consolidation; cross-session recall" },
+    { id: "ch11", n: 11, part: "B", title: "Agent design patterns", file: "content/part-b/ch11-patterns.js", code: "content/code/ch11.js", topics: "Reflection, tool use, planning, ReAct, ReWOO, plan-and-execute, replanning, human-in-the-loop, confidence, deep agents, self-improvement" },
+    // Part C
+    { id: "ch12", n: 12, part: "C", title: "LangChain and LCEL", file: "content/part-c/ch12-langchain-lcel.js", code: "content/code/ch12.js", topics: "Runnables, pipe chains, prompt templates, structured output, parallel and routing chains, loaders, splitters, retrievers, chat history, callbacks, retries, fallbacks, caching, serving (LangServe)" },
+    { id: "ch13", n: 13, part: "C", title: "LangChain agents and tools", file: "content/part-c/ch13-langchain-agents.js", code: "content/code/ch13.js", topics: "create_agent, @tool, StructuredTool, Pydantic tool arguments, tool errors, Tavily, Wikipedia, Python REPL, SQL agent, middleware, human approval, PII redaction, streaming steps, AgentExecutor (legacy)" },
+    { id: "ch14", n: 14, part: "C", title: "LangGraph basics", file: "content/part-c/ch14-langgraph-basics.js", code: "content/code/ch14.js", topics: "State, nodes, edges, conditional routing, START and END, reducers, MessagesState, ToolNode, tools_condition, MessageGraph (legacy), checkpointers, threads, trimming messages, recursion limit, retry policy, streaming, testing, LangGraph Studio" },
+    { id: "ch15", n: 15, part: "C", title: "LangGraph in depth", file: "content/part-c/ch15-langgraph-depth.js", code: "content/code/ch15.js", topics: "Cycles, self-correction, interrupt and resume, SQLite, Postgres and Redis checkpointers, Send API, map-reduce, sub-graphs, long-term memory store, time travel, durability, deployment" },
+    { id: "ch16", n: 16, part: "C", title: "MCP fundamentals", file: "content/part-c/ch16-mcp-fundamentals.js", code: "content/code/ch16.js", topics: "Host, client, server; tools, resources, prompts; JSON-RPC; stdio and Streamable HTTP; FastMCP; tool annotations; MCP clients; agents with MCP tools (OpenAI and Anthropic); Claude Desktop, VS Code and Claude Code; MCP Inspector; security and tool poisoning" },
+    { id: "ch17", n: 17, part: "C", title: "MCP ecosystem", file: "content/part-c/ch17-mcp-ecosystem.js", code: "content/code/ch17.js", topics: "Filesystem, Playwright, GitHub and database servers; choosing servers safely; a read-only SQLite server; several servers in one agent; MCP inside LangChain, LangGraph and CrewAI; remote servers, OAuth, audit logs, registry" },
+    { id: "ch18", n: 18, part: "C", title: "Advanced and agentic RAG", file: "content/part-c/ch18-advanced-rag.js", code: "content/code/ch18.js", topics: "Failure modes, metadata filters, stale documents, HyDE, query rewriting, re-ranking, cross-encoders, advanced chunking, agentic, adaptive, corrective and self RAG, GraphRAG, knowledge graphs, LlamaIndex, RAGAS metrics, context recall and precision, faithfulness, access control" },
+    { id: "ch19", n: 19, part: "C", title: "Agno (formerly Phidata)", file: "content/part-c/ch19-agno.js", code: "content/code/ch19.js", topics: "Agents, models, tools, human confirmation, knowledge, storage, history, teams, workflows, guardrails, tool hooks, AgentOS; when to choose Agno" },
+    { id: "ch20", n: 20, part: "C", title: "DSPy: programming, not prompting", file: "content/part-c/ch20-dspy.js", code: "content/code/ch20.js", topics: "Signatures, modules, Predict, ChainOfThought, ReAct, metrics, optimisers (BootstrapFewShot, MIPROv2, GEPA), compiling, saving programs, DSPy vs hand-written prompts" },
+    // Part D
+    { id: "ch21", n: 21, part: "D", title: "Why and when multiple agents", file: "content/part-d/ch21-why-multi-agent.js", code: "content/code/ch21.js", topics: "Specialisation, tool overload, limits of one agent, cost, latency and debugging trade-offs, splitting by responsibility, hand-off contents, budgets, ping-pong detection, tracing" },
+    { id: "ch22", n: 22, part: "D", title: "Multi-agent patterns", file: "content/part-d/ch22-multi-agent-patterns.js", code: "content/code/ch22.js", topics: "Sequential, router, supervisor, hierarchical, parallel, network, swarm, debate, critic; shared vs private state; handoffs; message contracts" },
+    { id: "ch23", n: 23, part: "D", title: "Multi-agent with LangGraph", file: "content/part-d/ch23-langgraph-multi-agent.js", code: "content/code/ch23.js", topics: "Agents as tools, subagents, supervisor graphs, Command routing, handoffs, swarm, shared state, human gates, routing tests, sub-graph tracing" },
+    { id: "ch24", n: 24, part: "D", title: "Multi-agent with CrewAI", file: "content/part-d/ch24-crewai.js", code: "content/code/ch24.js", topics: "Agents, tasks, tools, crews, sequential and hierarchical processes, MCP tools in a crew, typed output, guardrails, limits, Flows" },
+    { id: "ch25", n: 25, part: "D", title: "Multi-agent with AutoGen", file: "content/part-d/ch25-autogen.js", code: "content/code/ch25.js", topics: "Roles, conversation patterns, termination, human-in-the-loop, code executor, tool use" },
+    { id: "ch26", n: 26, part: "D", title: "Agent interoperability", file: "content/part-d/ch26-agent-interoperability.js", code: "content/code/ch26.js", topics: "A2A and agent cards, ACP, ANP with DIDs, gateways, trust, federation and governance" },
+    { id: "ch27", n: 27, part: "D", title: "Capstone: Clinic Helpdesk crew", file: "content/part-d/ch27-capstone-clinic-crew.js", code: "content/code/ch27.js", topics: "Triage, appointment, insurance and compliance agents; RAG; MCP tool; human approval; review, testing, documentation and demo" },
+    // Part E
+    { id: "ch28", n: 28, part: "E", title: "n8n agentic workflows", file: "content/part-e/ch28-n8n.js", code: "content/code/ch28.js", topics: "Self-hosting, triggers, LLM nodes, HTTP node, error branches, expressions, LangGraph from n8n, Slack, Sheets, credentials" },
+    { id: "ch29", n: 29, part: "E", title: "Zapier and Make", file: "content/part-e/ch29-zapier-make.js", code: "content/code/ch29.js", topics: "Triggers and actions, multi-step Zaps, Zapier Tables, Make scenarios and routers, webhooks, Python agents" },
+    { id: "ch30", n: 30, part: "E", title: "Visual agent builders", file: "content/part-e/ch30-visual-builders.js", code: "content/code/ch30.js", topics: "Langflow, Relevance AI, Wordware; limits and when to move to code" },
+    // Part F
+    { id: "ch31", n: 31, part: "F", title: "Observability and evaluation", file: "content/part-f/ch31-observability-evaluation.js", code: "content/code/ch31.js", topics: "LangSmith, Langfuse, AgentOps, datasets, LLM-as-judge, regression and A/B tests, prompt management, alerts" },
+    { id: "ch32", n: 32, part: "F", title: "Monitoring and cost", file: "content/part-f/ch32-monitoring-cost.js", code: "content/code/ch32.js", topics: "OpenTelemetry, Jaeger, Prometheus, Grafana, Arize Phoenix, embedding drift, token budgets, SLAs and SLOs" },
+    { id: "ch33", n: 33, part: "F", title: "Guardrails", file: "content/part-f/ch33-guardrails.js", code: "content/code/ch33.js", topics: "OWASP LLM Top 10, prompt injection, NeMo Guardrails, Colang, Guardrails AI, Presidio, toxicity and hallucination checks, red-teaming" },
+    { id: "ch34", n: 34, part: "F", title: "Generative AI security", file: "content/part-f/ch34-genai-security.js", code: "content/code/ch34.js", topics: "Attack vectors, model theft, data poisoning, model-hub risks, provenance, bias, compliance, multimodal threats" },
+    { id: "ch35", n: 35, part: "F", title: "Fine-tuning", file: "content/part-f/ch35-fine-tuning.js", code: "content/code/ch35.js", topics: "When to fine-tune, LoRA, QLoRA, datasets from traces, HuggingFace PEFT, evaluation, RLHF and DPO" },
+    { id: "ch36", n: 36, part: "F", title: "Deploying agents", file: "content/part-f/ch36-deploying-agents.js", code: "content/code/ch36.js", topics: "Docker, multi-stage builds, Compose, secrets, health checks, GitHub Actions, Cloud Run, ECS, blue/green, canary" },
+    { id: "ch37", n: 37, part: "F", title: "Cloud agent platforms", file: "content/part-f/ch37-cloud-platforms.js", code: "content/code/ch37.js", topics: "Amazon Bedrock and AgentCore, Microsoft Foundry, Google Gemini Enterprise Agent Platform, serverless agents, least-privilege access, data residency" },
+    // Part G
+    { id: "ch38", n: 38, part: "G", title: "AI coding tools landscape", file: "content/part-g/ch38-coding-tools-landscape.js", code: "content/code/ch38.js", topics: "Vibe coding vs agentic engineering; Claude Code, GitHub Copilot, Cursor; AGENTS.md; choosing a tool for a health-IT team" },
+    { id: "ch39", n: 39, part: "G", title: "Working well with a coding agent", file: "content/part-g/ch39-working-with-a-coding-agent.js", code: "content/code/ch39.js", topics: "Instruction files that earn their place; explore, plan, change, check, review; evidence not claims; reviewing AI-written diffs; when sessions go wrong" },
+    { id: "ch40", n: 40, part: "G", title: "Saving tokens and cost", file: "content/part-g/ch40-saving-tokens-cost.js", code: "content/code/ch40.js", topics: "Where tokens go; prompt caching; measuring with a repo scanner and a cost model; habits that save most; test-output filter hook (and its pitfalls); team budgets" },
+    { id: "ch41", n: 41, part: "G", title: "Extending agents: MCP, plugins, skills, hooks", file: "content/part-g/ch41-extending-agents.js", code: "content/code/ch41.js", topics: "Which extension for which job; a read-only database over MCP (SQLite built, PostgreSQL role); hooks that block; permission rules; skills; trusting what you plug in" },
+    { id: "ch42", n: 42, part: "G", title: "Your agentic development team", file: "content/part-g/ch42-agentic-dev-team.js", code: "content/code/ch42.js", topics: "Why a team and when not to; subagent files with enforced tools; real git worktrees and file ownership; handoff notes a program can check; human checkpoints" },
+    { id: "ch43", n: 43, part: "G", title: "Quality and safety in AI-built code", file: "content/part-g/ch43-quality-safety-ai-code.js", code: "content/code/ch43.js", topics: "What goes wrong in AI-built code; a merge gate on real git branches; invented packages (slopsquatting); hidden instructions in repo text; licences; permission modes; CI; review checklist" },
+    { id: "ch44", n: 44, part: "G", title: "Capstone: build a feature with an agent team", file: "content/part-g/ch44-capstone-agent-team.js", code: "content/code/ch44.js", topics: "A team adds a real feature to the Clinic Helpdesk: plan approval, worktree, gate, acceptance spec, MCP database check, one token budget, merge approval; what is real and what is a stand-in" }
+  ]
+};
